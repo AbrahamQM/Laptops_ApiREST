@@ -15,8 +15,11 @@ Proyecto Spring Boot con las dependencias:
 -Dentro de la misma app crear las clases necesarias para trabajar con "Laptops":
 
 -Laptop (entidad) 
+
 -LaptopRepository (repositorio)
+
 -LaptopController (controlador)
+
 -Desde LaptopController crear los métodos CRUD.
 
 Funciona desde Postman. 
