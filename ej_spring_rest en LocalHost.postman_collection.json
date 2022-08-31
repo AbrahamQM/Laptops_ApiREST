@@ -58,7 +58,7 @@
 			"response": []
 		},
 		{
-			"name": "optener por id",
+			"name": "obtener por id",
 			"request": {
 				"method": "GET",
 				"header": [],
