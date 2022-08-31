@@ -11,13 +11,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.firewall.HttpFirewall;
 import org.springframework.security.web.firewall.StrictHttpFirewall;
 
+
+
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http.csrf().disable().authorizeRequests()
                 .antMatchers("/hello").permitAll() //acceder al endpoint /hello sin autenticarnos
                 .anyRequest().authenticated()
                 .and()
@@ -32,6 +34,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         StrictHttpFirewall firewall = new StrictHttpFirewall();
         firewall.setAllowSemicolon(false); //cambiar a true si queremos aceptar';'
         firewall.setAllowBackSlash(false); //cambiar a true si queremos aceptar'\'
+        //Para permitir métodos POST PUT Y DELETE además del GET
+//        firewall.setAllowedHttpMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
+
         return firewall;
     }
 

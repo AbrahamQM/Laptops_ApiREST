@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "98a88fe1-b32b-4fec-86f1-70cb4b9cdfca",
+		"name": "ej_spring_rest en LocalHost",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "helloController",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/hello",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener todas las laptop en bbdd GetAll",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/laptops",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laptops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "optener por id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/laptop/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laptop",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "añadir laptop nueva (no debe contener id)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"manofacturer\": \"Añadido2 Lenovo\",\r\n    \"model\": \"s512i5hd15.6\",\r\n    \"price\": 799.0,\r\n    \"ram\": 16,\r\n    \"hdd\": 512\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/laptop",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laptop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizar laptop pasando json incluyendo la id del elemento a modificar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 3,\r\n    \"manofacturer\": \"Actualizado!! Añadido1 Toshiba\",\r\n    \"model\": \"s512i5hd15.6\",\r\n    \"price\": 799.0,\r\n    \"ram\": 16,\r\n    \"hdd\": 512\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/laptop",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laptop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminar laptop por id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/laptop/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laptop",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "borrar todos los laptops",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/laptops",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laptops"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

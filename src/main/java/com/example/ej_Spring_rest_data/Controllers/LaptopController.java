@@ -26,8 +26,14 @@ public class LaptopController {
     //Crear
     @PostMapping("/api/laptop")
     @ApiOperation("Crear una Laptop pasándole un json sin la id")
-    public Laptop create(@RequestBody Laptop laptop){
-        return laptopRepository.save(laptop);
+    public ResponseEntity<Laptop> create(@RequestBody Laptop laptop){
+        //Comprobamos que la laptop que nos pasan no tiene id, ya que esta se genera automáticamente al crearse
+        //De manera que si nos pasan una laptop con id, ésta ya debería haber sido creada con antelación
+        if (laptop.getId() != null){
+            return ResponseEntity.badRequest().build(); //devuelve un Bad Request, ya que lo que ha intentado hacer es
+            //un update de una laptop con id ya asignada.
+        }
+        return ResponseEntity.ok(laptopRepository.save(laptop));
     }
 
     //leer todos
